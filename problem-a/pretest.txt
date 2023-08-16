@@ -1,0 +1,75 @@
+ FAIL  problem-a/problem.spec.js
+  Used test-driven development
+    ✕ Used Jest to pre-test code, saved in `pretest.txt`
+  Source code is valid
+    ✕ HTML validates without errors (5 ms)
+    ✓ CSS validates without errors (80 ms)
+  Has required HTML
+    ✕ Specifies charset (2 ms)
+    ✓ Includes page title
+    ✓ Includes author metadata (1 ms)
+    ✓ Has a top-level heading
+    ✓ Has an image (1 ms)
+    ✓ Includes a paragraph
+    ✓ Includes a hyperlink in the paragraph (1 ms)
+    ✓ Includes a list
+    ✓ List has at least 3 items
+  Has required CSS
+    ✓ Links in local stylesheet
+    ✓ Body has default font size
+    ✓ Body has default font family
+    ✓ Paragraphs have specified line height
+    ✓ Images have constrained height
+    ✓ Important list item is colored (1 ms)
+
+  ● Used test-driven development › Used Jest to pre-test code, saved in `pretest.txt`
+
+    ENOENT: no such file or directory, open '/Users/changxinyu/Desktop/info340-code/problem-01-CREASA/problem-a/pretest.txt'
+
+      17 |   test('Used Jest to pre-test code, saved in `pretest.txt`', () => {
+      18 |     const path = __dirname + '/pretest.txt'
+    > 19 |     const pretest = fs.readFileSync(path, 'utf-8');
+         |                        ^
+      20 |     expect(pretest).toMatch(/FAIL +problem-a\/problem\.spec\.js/)
+      21 |   })
+      22 | })
+
+      at Object.readFileSync (problem-a/problem.spec.js:19:24)
+
+  ● Source code is valid › HTML validates without errors
+
+    Error: 'html-valid-content-model' at line 3, column 1.
+    Error: 'head-req-title' at line 4, column 3.
+
+      38 |     }
+      39 |
+    > 40 |     await expect(htmlPath).toHaveNoHtmlLintErrorsAsync(lintOpts);
+         |                            ^
+      41 |   })  
+      42 |
+      43 |   test('CSS validates without errors', async () => {
+
+      at Object.toHaveNoHtmlLintErrorsAsync (problem-a/problem.spec.js:40:28)
+
+  ● Has required HTML › Specifies charset
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      54 |
+      55 |   test('Specifies charset', () => {
+    > 56 |     expect($('head > meta[charset]').length).toBe(1); //has 1 tag
+         |                                              ^
+      57 |   })
+      58 |   
+      59 |   test('Includes page title', () => {
+
+      at Object.toBe (problem-a/problem.spec.js:56:46)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 15 passed, 18 total
+Snapshots:   0 total
+Time:        0.679 s
+Ran all test suites matching /problem-a/i.
